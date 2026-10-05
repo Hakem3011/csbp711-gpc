@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "xgboost": true,
+  "features": [
+    "SiO2 in fly ash (%)",
+    "Al2O3 in fly ash (%)",
+    "CaO in fly ash (%)",
+    "Fe2O3 in fly ash (%)",
+    "MgO in fly ash (%)",
+    "Fly ash (kg/m3)",
+    "NaOH solution (kg/m3)",
+    "NaOH solution concentration (mol/L)",
+    "Na2SiO3 solution (kg/m3)",
+    "Na2O in Na2SiO3 solution (%)",
+    "SiO2 in Na2SiO3 solution (%)",
+    "Extra added H2O (kg/m3)",
+    "Coarse aggregate (kg/m3)",
+    "Fine aggregate (kg/m3)",
+    "Heat-curing temperature (\u2103)",
+    "Heat-curing period (day)",
+    "Total curing period (day)"
+  ],
+  "categorical": [
+    "Specimens"
+  ],
+  "dropped": [
+    "NaOH solids (kg/m3)",
+    "H2O in NaOH solution (kg/m3)"
+  ],
+  "between_study_variance_share": 0.611
+}

@@ -1,0 +1,12 @@
+rows read: 1136; columns: 41
+forward-filled block-sparse column 'Reference': 1053 blank cells (value written once per study block)
+forward-filled block-sparse column 'Size': 1059 blank cells (value written once per study block)
+stray unnamed columns in the sheet, ignored: ['Unnamed: 30', 'Unnamed: 40']
+missing fraction, worst five columns: H2O in NaOH solution (kg/m3)=0.79, NaOH solids (kg/m3)=0.79, NaOH solution concentration (mol/L)=0.22, MgO in fly ash (%)=0.15, SiO2 in Na2SiO3 solution (%)=0.01
+dropped sparse columns (not usable): ['NaOH solids (kg/m3)', 'H2O in NaOH solution (kg/m3)']
+exact duplicate rows removed: 14; rows kept: 1122
+distinct fly-ash oxide fingerprints: 112; fingerprints used by more than one reference: 11 (the by-study split holds out reference strings, not laboratories)
+source studies: 83; rows per study median 7, max 113 (10% of all rows from one study)
+target fc (Mpa): mean 36.5, min 1.1, max 87.4 MPa
+specimen types: Cube=683, Cylinder=439
+share of strength variance BETWEEN studies: 61%

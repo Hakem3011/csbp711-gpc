@@ -1,0 +1,6 @@
+setting,split,model,MAE_MPa,R2,fit_time_s,model_size
+mix variables + study identity,random,ridge_baseline,6.0676822935853565,0.6949557892113492,0.11458700000366662,102
+mix variables + study identity,random,random_forest,4.279388170803867,0.8101698991384116,14.964099099997838,231272
+mix variables + study identity,random,mlp,4.330505743665377,0.8020288580562297,32.18843120000383,8641
+mix variables + study identity,random,xgboost,3.8179050138899067,0.8430881506476946,3.22146170000633,17480
+study-mean oracle (no mix variables),random,study_mean,7.367446714524727,0.5279564105330099,0.0,83

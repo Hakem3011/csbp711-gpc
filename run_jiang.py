@@ -1,10 +1,10 @@
 """
 CSBP 711 - Assignment 1
 Dataset: Jiang et al. (2024) PLOS ONE, doi 10.1371/journal.pone.0310422, S1 Table = file pone.0310422.s002.xlsx
-         (1,136 fly-ash geopolymer concrete mixes compiled from 83 studies, CC BY 4.0).
+         (1,136 fly-ash geopolymer concrete mixes in 83 reference blocks from 82 papers, CC BY 4.0).
 
 Usage:  python run_jiang.py --xlsx data/pone.0310422.s002.xlsx --seed 42
-Writes: results/data_audit.txt, results/comparison.csv, results/ablation.csv, figures/*.png
+Writes: results/data_audit.txt, results/comparison.csv, results/ablation.csv, results/run_config.json, figures/*.png
 """
 import argparse, os, re, time, json, warnings
 import numpy as np, pandas as pd
@@ -145,10 +145,6 @@ def main():
     # F1 data: strength distribution and rows per study
     fig, ax = plt.subplots(1, 2, figsize=(9, 3.2))
     ax[0].hist(df[TARGET], bins=30, color="#3b6e8f"); ax[0].set_xlabel("Compressive strength (MPa)"); ax[0].set_ylabel("Mixes")
-    fp = df[["SiO2 in fly ash (%)", "Al2O3 in fly ash (%)", "CaO in fly ash (%)", "Fe2O3 in fly ash (%)"]].round(2).astype(str).agg("|".join, axis=1)
-    shared = int((df.groupby(fp)[GROUP].nunique() > 1).sum())
-    log.append(f"distinct fly-ash oxide fingerprints: {fp.nunique()}; fingerprints used by more than one reference: {shared} "
-               f"(the by-study split holds out reference strings, not laboratories)")
     vc = df[GROUP].value_counts().values; ax[1].bar(range(len(vc)), vc, color="#3b6e8f"); ax[1].set_xlabel("Study (sorted)"); ax[1].set_ylabel("Mixes per study")
     ax[1].set_title(f"{df[GROUP].nunique()} studies; largest = {vc.max()} mixes", fontsize=9)
     plt.tight_layout(); plt.savefig("figures/F1_data.png", dpi=200); plt.close()

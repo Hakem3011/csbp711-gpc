@@ -1,0 +1,3 @@
+distinct fly-ash oxide fingerprints: 112; used by more than one reference block: 11
+by-study split (GroupKFold on reference block): held-out rows whose fingerprint also occurs in training = 163/1122 (15%); fold 0: 43/225 (19%); fold 1: 18/225 (8%); fold 2: 87/224 (39%); fold 3: 7/224 (3%); fold 4: 8/224 (4%)
+rows with molarity missing: 247; of these, rows carrying NaOH solids and water (molarity derivable): 239; activator Na2O/SiO2/H2O columns complete on 1136 of 1136 rows

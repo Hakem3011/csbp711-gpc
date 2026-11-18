@@ -45,6 +45,12 @@ Explanation tested, two data properties:
 1. Strength in this compilation varies mostly between laboratories (61 % of variance), and the fly-ash and silicate columns barely vary within a study, so on a random split a tree identifies the source. Prediction (a): holding out whole blocks should bring every model to the baseline's level; (b): giving every model the block identity should close the gap. (b) held (ridge 0.47 -> 0.70, trees +-0.01; block mean alone 0.53). (a) held for the MLP, is within fold-draw noise for the forest (0.13 +- 0.06 vs ridge 0.05 +- 0.10 over eight draws), and failed for XGBoost (0.29 +- 0.06, first in 8 of 8 draws). So this property explains the trees' lead over ridge, not XGBoost's margin over the forest.
 2. The target is a large between-laboratory offset plus a small within-laboratory signal. Prediction: if fitting residuals is what preserves XGBoost's margin, boosted trees should beat bagged trees from the same library at equal depth (4) and equal sampling when blocks are held out, which removes depth and capacity from the comparison. Result (`ablation_boosting.py`): boosted 0.16 vs bagged -0.03 by block (0.85 vs 0.57 random). Independently averaged trees re-fit the offset in every tree; boosting absorbs it early and then fits the residual, the only part that transfers to a new source. The depth ablation alone could not show this (the depth-4 forest underfits the random split too).
 
+## Assignment 2: paper critique
+
+T-BoostNet (Hassan et al., 2026) rebuilt and re-run on this dataset under random,
+by-mix and by-study splits. Everything for Assignment 2 is in the folder
+assignment2_critique/, with its own README.
+
 ## Limitations (stated honestly)
 - The by-study split holds out *reference strings*, not laboratories. Several laboratories contribute more than one paper (one paper also appears under two spellings), and 15 % of held-out rows share their fly-ash oxide fingerprint with a training row (39 % in the worst fold; `results/overlap_audit.txt`). The split removes most, not all, of the laboratory leakage, so the by-study scores are an upper bound on cross-laboratory performance.
 - Molarity is median-imputed on 247 rows although it could be derived from the NaOH-solids and water columns for 239 of them; the activator's Na2O/SiO2/H2O columns, which are complete, were dropped as derived. Using them is a possible improvement, not done here.
